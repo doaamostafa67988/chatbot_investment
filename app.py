@@ -14,7 +14,13 @@ app = Flask(__name__)
 # Initialize LLM and other components as in the original code
 local_llm = "neural-chat-7b-v3-1.Q4_K_M.gguf"
 config = {
-    # configuration settings as in the original code
+    'max_new_tokens': 1024,
+    'repetition_penalty': 1.1,
+    'temperature': 0.1,
+    'top_k': 50,
+    'top_p': 0.9,
+    'stream': True,
+    'threads': int(os.cpu_count() / 2)
 }
 
 llm = CTransformers(
