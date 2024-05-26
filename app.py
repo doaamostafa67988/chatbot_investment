@@ -30,8 +30,6 @@ llm = CTransformers(
     **config
 )
 
-print("LLM Initialized....")
-
 prompt_template = """Use the following pieces of information to answer the user's question.
 If you don't know the answer, just say that you don't know, don't try to make up an answer.
 
@@ -65,7 +63,6 @@ def index():
 @app.route('/get_response', methods=['POST'])
 def get_response():
     query = request.form.get('query')
-    # Your logic to handle the query
     chain_type_kwargs = {"prompt": prompt}
     qa = RetrievalQA.from_chain_type(
         llm=llm,
