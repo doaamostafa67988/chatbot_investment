@@ -11,7 +11,7 @@ from langchain.document_loaders import PyPDFLoader
 
 app = Flask(__name__)
 
-# Initialize LLM and other components as in the original code
+# Initialize LLM and other components
 local_llm = "neural-chat-7b-v3-1.Q4_K_M.gguf"
 config = {
     'max_new_tokens': 1024,
